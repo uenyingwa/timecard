@@ -33,7 +33,7 @@
       </tr>
     </thead>
     <tbody>
-    <% if !@time_entries.blank? %>
+    <% if !@time_entries.empty? %>
       <% @time_entries.each do |time_entry| %>
         <tr>
           <td scope="row"><%= time_entry[:created_at].strftime('%H:%M %p') %></td>

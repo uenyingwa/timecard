@@ -1,24 +1,23 @@
-# README
+# TimeCards Time Tracking App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+This application is used to clock-in/clock-out of work, projects, tasks etc., to keep track of events.
 
-* Ruby version
+- A user must be authenticated to use the timesheet.
+- Upon landing on the home page, the user can click on the "Clock in" button to begin tracking time and "Clock out" to stop tracking time.
+- Users can track time multiple times in a day and can view all their entries.
 
-* System dependencies
 
-* Configuration
+### Setting up
 
-* Database creation
+Install dependencies by running `bundle install`.
 
-* Database initialization
+### Running development web server
 
-* How to run the test suite
+```sh
+ rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Heroku
+- Deployed [here](https://timercards.herokuapp.com/)

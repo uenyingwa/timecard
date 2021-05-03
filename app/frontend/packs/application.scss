@@ -1,7 +1,6 @@
 // Import Bootstrap v5
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
-//navbar
 .navbar {
   background-repeat: no-repeat;
 }
@@ -17,16 +16,21 @@ a {
   color: #FFFFFF;
 }
 
-.navbar-color {
-  background-color: #0c6efd !important;
-}
-
-//task/_form
 .task-form {
   margin: 0 30%;
 }
 
-// modal
-.clock-modal {
-  margin: 7% 32%;
+.devise-new {
+  position: absolute;
+  left: 44%;
+  top: 38%;
+}
+
+.devise-input {
+  width: 16em;
+  height: 3em;
+}
+
+.submit-new {
+  margin: 5% 29%;
 }
