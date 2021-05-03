@@ -1,0 +1,56 @@
+<div class="">
+  <div class="row">
+    <div class="card col-sm">
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= DateTime.now.strftime('%a, %d %b %Y') %></h5>
+        <h6 class="card-subtitle mb-2 text-muted text-center">Total Clocking Today: <%= @total_time %></h6>
+      </div>
+    </div>
+    <div class="col-sm"></div>
+    <div class="col-sm"></div>
+    <div class="col-sm"></div>
+    <div class="card col-sm">
+      <div class="card-body">
+        <% if !@time_entries.blank? && @time_entries.last.clock_out.nil? %>
+          <button type="button" class="clock-modal card-title btn btn-danger" >
+            <a href="/clock_out">Clock Out</a>
+          </button>
+          <% else %>
+            <button type="button" class="clock-modal card-title btn btn-primary" >
+              <a href="/clock_in">Clock In</a>
+            </button>
+          <% end  %>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Time In</th>
+        <th scope="col">Time Out</th>
+        <th scope="col">Time Spent</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if !@time_entries.blank? %>
+      <% @time_entries.each do |time_entry| %>
+        <tr>
+          <td scope="row"><%= time_entry[:created_at].strftime('%H:%M %p') %></td>
+          <% if time_entry[:clock_out].nil?  %>
+            <td></td>
+          <% else %>
+            <td><%= time_entry[:clock_out].strftime('%H:%M %p') %></td>
+          <%end %>
+          <td><%= time_entry.time_on_stop %></td>
+          <% if time_entry[:clock_out].nil? %>
+            <td><button type="button" class="btn btn-primary" disabled><%= link_to 'Edit', edit_time_entry_path(time_entry) %></button></td>
+            <% else %>
+              <td><button type="button" class="btn btn-primary"><%= link_to 'Edit', edit_time_entry_path(time_entry) %></button></td>
+            <% end %>
+        </tr>
+      <% end %>
+    <% end  %>
+    </tbody>
+  </table>
+</div>
