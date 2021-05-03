@@ -1,10 +1,13 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
+require 'spec_helper'
 require File.expand_path('../config/environment', __dir__)
+require_relative '../spec/support/factory_bot'
+require 'rspec/rails'
+require 'devise'
+
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -67,5 +70,11 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
+  end
+
+  RSpec.configure do |config|
+    # For Devise > 4.1.1
+    config.include Devise::Test::ControllerHelpers, type: :controller
+    config.include Devise::Test::IntegrationHelpers, type: :request
   end
 end
