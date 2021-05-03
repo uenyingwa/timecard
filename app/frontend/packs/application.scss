@@ -5,16 +5,28 @@
 .navbar {
   background-repeat: no-repeat;
 }
+
 .navbar-nav {
   margin-left: auto;
 }
 .me-2, .nav-link {
   color: #FFFFFF;
 }
+
 a {
-  text-decoration: underline !important;
+  color: #FFFFFF;
 }
 
 .navbar-color {
-  background-color: #08C1CA !important;
+  background-color: #0c6efd !important;
+}
+
+//task/_form
+.task-form {
+  margin: 0 30%;
+}
+
+// modal
+.clock-modal {
+  margin: 7% 32%;
 }

@@ -1,0 +1,13 @@
+<%= form_with(model: @time_entry, url: new_time_entry_path, method: :get, class: "task-form") do |f|  %>
+  <div>
+    <ul class="list-group">
+      <% @time_entry.errors.full_messages.each do |error| %>
+        <li class="list-group-item list-group-item-danger"><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="mb-3">
+    <%= f.hidden_field :task_id, value: params['task_id'], class: "form-control" %>
+  </div>
+  <%= f.submit "CLock In", class: "btn btn-primary" %>
+<% end %>
