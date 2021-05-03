@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: timecard_production
-  username: timecard
-  password: <%= ENV['TIMECARD_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
