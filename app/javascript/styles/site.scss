@@ -1,5 +1,7 @@
 // Import Bootstrap v5
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "./devise.scss";
+@import "./time-entry.scss";
 
 .navbar {
   background-repeat: no-repeat;
@@ -12,18 +14,8 @@
   color: #FFFFFF;
 }
 
-a {
-  color: #FFFFFF;
-}
-
 .task-form {
   margin: 0 30%;
-}
-
-.devise-new {
-  position: absolute;
-  left: 44%;
-  top: 38%;
 }
 
 .devise-input {
