@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :time_entries, only: %i[index edit update show]
   get '/clock_in', to: 'time_entries#create'
   get '/clock_out', to: 'time_entries#clock_out'
+  get '/trial', to: 'time_entries#trial'
 end

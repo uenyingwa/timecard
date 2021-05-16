@@ -2,7 +2,7 @@
 
 class TimeEntry < ApplicationRecord
   belongs_to :user
-  validates_datetime :clock_out, on: :update, after: :created_at, after_message: 'Clock out must come after clock in'
+  validates_datetime :clock_out, on: :update, after: :created_at, after_message: 'must come after clock in'
 
   scope :today_entries, -> { where(created_at: Time.current.all_day) }
 

@@ -5,6 +5,8 @@ class TimeEntriesController < ApplicationController
   before_action :set_time_entry, only: %i[edit update show]
   before_action :time_entry_params, only: :update
 
+  def trial; end
+
   def index
     @time_entries = current_user.time_entries
     @total_time = helpers.total_entries_time(@time_entries)
@@ -33,8 +35,8 @@ class TimeEntriesController < ApplicationController
     if @time_entry.update(time_entry_params)
       flash[:notice] = 'Time Updated'
       redirect_to time_entries_path
-    else
-      render :edit
+      # else
+      # render partial: "edit", locals: {time_entry: @time_entry}
     end
   end
 
