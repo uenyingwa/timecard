@@ -5,6 +5,7 @@ class TimeEntry < ApplicationRecord
   validates_datetime :clock_out, on: :update, after: :created_at, after_message: 'must come after clock in'
 
   scope :today_entries, -> { where(created_at: Time.current.all_day) }
+  scope :entries_by_day, ->(day) { where(created_at: Time.parse(day).all_day).order(:id) }
 
   def time_on_stop
     if clock_out.present?
@@ -18,5 +19,21 @@ class TimeEntry < ApplicationRecord
 
       format('%02d:%02d', hrs, mins)
     end
+  end
+
+  def total_entries_time(entries)
+    total = 0
+    entries.each do |time_entry|
+      next unless time_entry.clock_out
+
+      time_in = time_entry.created_at
+      time_out = time_entry.clock_out
+      total_time = time_out - time_in
+      total += total_time
+    end
+    hrs = total / (60 * 60)
+    mins = (total / 60) % 60
+
+    format('%02d:%02d', hrs, mins)
   end
 end

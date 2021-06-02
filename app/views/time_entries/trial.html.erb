@@ -1,3 +1,18 @@
-<%= week_calendar do |date| %>
-  <%= date %>
-<% end %>
+<div class="container">
+  <div class="accordion" id="calendar-table">
+    <%= week_calendar do |date| %>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-<%= date %>">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= date %>" aria-expanded="true" aria-controls="collapse-<%= date %>">
+            <%= date %>
+          </button>
+        </h2>
+        <div id="collapse-<%= date %>" class="accordion-collapse collapse" aria-labelledby="heading-<%= date %>" data-bs-parent="#calendar-table">
+          <div class="accordion-body">
+            
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
